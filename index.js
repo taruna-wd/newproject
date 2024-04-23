@@ -72,7 +72,7 @@ async function main() {
 
 
 app.use("/listings", listings);
-app.use("/listings/:id/reviews", reviews)
+app.use("/listings", reviews)
 app.use("/", userRouter)
 
 //  app.use("/user", async(req,res)=>{
