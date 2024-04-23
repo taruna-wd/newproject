@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate")-%>
+
+<body>
+
+  <div class="row">
+    <div class="col-8 offset-2">
+      
+      <h3> <%= listing.title %></h3>
+   <div class="">
+    <img src="<%= listing.image %>" class="card-img-top " alt="listing_image" style=" height: 20rem;"> <br>
+    <div class="card-body">
+      <p class="card-text">
+         <b><%= listing.title %> </b> <br> 
+
+        <%= listing.description %> <br>
+        &#8377; <%= listing.price %> <br>
+        <%= listing.location %> <br>
+        <%= listing.country %>
+    </div>
+   </div>
+
+   <div class="d-flex ">
+  <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary mx-2">Edit Item</a>
+  <form  method="post" action="/listings/<%= listing._id %>?_method=delete">
+    <button class="btn btn-danger">Delete Item</button>
+
+  </form>
+   </div>
+    <hr>
+     <div class=" my-2"> 
+      <h4> leave a Review</h4>
+        <form action="/listings/<%=listing.id %>/reviews" method="POST">
+    <div class="mb-3">
+      <label for="Rating" class="form-label">Rating</label>
+      <input type="range" min="1" max="5" class="form-range" id="Rating" placeholder="name@example.com" name="review[rating]"  required>
+    </div>
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea class="form-control" id="comment" rows="3" name="review[comment]" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-dark">submit</button>
+  </form>
+  <hr>
+  <h4>All review</h4> <br>
+  <p><%= listing.reviews %></p>
+
+  </div>
+
+ 
+  </div>
+
+  
+
+</body>
