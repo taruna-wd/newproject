@@ -24,7 +24,7 @@ const validateReview = (req,res,next)=>{
 
 // reviews Post route 
 
-router.post("/",
+router.post("/:id/reviews",
 // validateReview ,
 wrapAsync(async (req, res) => {
    //find listing by id
