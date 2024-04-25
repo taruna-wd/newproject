@@ -6,6 +6,7 @@
       novalidate
       method="post"
       action="/listings/<%= listing._id %>?_method=PUT"
+      enctype="multipart/form-data"
     >
       <h3 class="new">Add new Pizza</h3>
 
@@ -46,12 +47,11 @@
       <div class="col-8">
         <label for="inputAddress" class="form-label">image</label>
         <input
-          type="text"
+          type="file"
           name="listing[image]"
           value="<%= listing.image %> "
           class="form-control"
           id="inputAddress"
-          placeholder="image "
         />
         <div class="invalid-feedback">
          link should be different!

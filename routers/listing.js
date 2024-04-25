@@ -6,6 +6,11 @@ const ExpressError = require("../utils/ExpressError.js");
 const {islogIn} = require("../middleware.js");
 
  const router =  express.Router();
+ const multer  = require('multer')
+ const {storage} = require("../cloud_config.js")
+const upload = multer({ storage });
+
+
 
 
 
@@ -27,6 +32,11 @@ router.get("/",wrapAsync(  async (req,res)=>{
   res.render("./listings/index.ejs",{allListing})
 
 }));
+router.post( "/",  upload.single('listing[image]'),async(req,res)=>{
+  // const allListing = await Listing.find({}) ;
+  res.send(req.file)
+
+});
 // new route
 
 router.get("/new",
@@ -49,9 +59,14 @@ router.get("/:id" , wrapAsync(  async(req,res) =>{
 router.post("/" , 
 // validateListing,
 wrapAsync(async(req,res,next)=>{
+  let url = req.file.path;
+  let filename = req.file.filename;
+  console.log(url, ".." ,filename)
      const  newListing = new Listing (req.body.listing);
- await newListing.save()
- req.flash("success!" , " new listing created")
+     newListing.owner
+
+//  await newListing.save()
+//  req.flash("success!" , " new listing created")
 
  res.redirect("/listings")
   

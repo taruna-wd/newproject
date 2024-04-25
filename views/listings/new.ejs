@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate")-%>
 
 <body>
-  <form class="row g-3 justify-content-center needs-validation"  novalidate method="post" action="/listings">
+  <form class="row g-3 justify-content-center needs-validation"  novalidate method="post" action="/listings" enctype="multipart/form-data">
     <h3 class="text-center new">Add new Pizza</h3>
 
     <div class="col-8">
@@ -38,11 +38,10 @@
     <div class="col-8">
       <label for="inputAddress" class="form-label">image</label>
       <input
-        type="text"
+        type="file"
         name="listing[image]"
         class="form-control"
         id="inputAddress"
-        placeholder="image"
         required
       />
     </div>

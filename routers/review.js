@@ -24,12 +24,12 @@ const validateReview = (req,res,next)=>{
 
 // reviews Post route 
 
-router.post("listings/:id/reviews",
+router.post("/:id/reviews",
 // validateReview ,
 wrapAsync(async (req, res) => {
-   //find listing by id
    const {id}= req.params;
    console.log(id)
+   //find listing by id
 
    let listing = await Listing.findById(id);
    
@@ -47,8 +47,9 @@ wrapAsync(async (req, res) => {
 
    console.log("Saved review");
    // res.send("Review saved");
-   res.redirect(`/listings`);
+   res.redirect("/");
 }));
+
 
 
   router.delete("/:reviewId",wrapAsync(async(req,res)=>{
