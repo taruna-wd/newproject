@@ -22,10 +22,18 @@ const validateReview = (req,res,next)=>{
    }
  };
 
+
+
+ //show route
+ router.get("/:id" , wrapAsync( async(req,res)=>{
+   let {id }= req.params;
+   const listing = await Listing.findById(id).populate("reviews");
+   res.render("listings/show.ejs" , { listing })
+ })) ;
 // reviews Post route 
 
 router.post("/:id/reviews",
-// validateReview ,
+validateReview ,
 wrapAsync(async (req, res) => {
    const {id}= req.params;
    console.log(id)
@@ -47,7 +55,7 @@ wrapAsync(async (req, res) => {
 
    console.log("Saved review");
    // res.send("Review saved");
-   res.redirect("/");
+   res.redirect(`/listings/${id}`);
 }));
 
 

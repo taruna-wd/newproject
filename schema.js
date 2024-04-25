@@ -15,6 +15,6 @@ module.exports.listingSchema = joi.object({
 module.exports.reviewSchema = joi.object({
   review :joi.object({
     rating:joi.number().required(),
-    Comment:joi.string().required(),
+    comment:joi.string().required(),
   }).required()
 });
