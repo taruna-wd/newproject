@@ -43,7 +43,11 @@ app.use(express.static(path.join(__dirname, "/public"))) // for static webpages 
 const sessionOption={
    secret : "mysuperstring",
    resave : false,
-   saveUniitialized:true
+   saveUniitialized:true,
+   cookie : {
+      expires : Date.now() +  7 *24 * 60 *60 *1000 , //  save for 7 days  24 hours 60 min 60 sec 1000 mili-sec
+      maxAge :  7 *24 * 60 *60 *1000
+   }
 }
 
 app.get("/",(req,res)=>{
@@ -53,6 +57,13 @@ app.get("/",(req,res)=>{
 
 app.use(session (sessionOption));
 app.use(flash());
+app.use(passport.initialize())
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req,res,next)=>{
    res.locals.success = req.flash("success");
    res.locals.error = req.flash("error");
@@ -61,12 +72,11 @@ app.use((req,res,next)=>{
    next();
 });
 
-app.use(passport.initialize())
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
+
+app.use("/listings", listings);
+app.use("/listings", reviews)
+app.use("/", userRouter)
 
 // to build  database connection
 main()
@@ -79,9 +89,6 @@ async function main() {
 }
 
 
-app.use("/listings", listings);
-app.use("/listings", reviews)
-app.use("/", userRouter)
 
 //  app.use("/user", async(req,res)=>{
 //    let fakeUser = new User({
@@ -121,7 +128,7 @@ app.use("/", userRouter)
 //    res.render("error.ejs", { err })
 //    // res.status(status).send(message)
 
-// })
+// });
 
 
 app.listen(8080, () => {
