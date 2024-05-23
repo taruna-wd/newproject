@@ -36,7 +36,7 @@ module.exports.create = async (req, res, next) => {
         limit: 1
       })
         .send()
-        console.log(response.body.features[0].geometry);  //for practice
+        // console.log(response.body.features[0].geometry);  //for practice
         
     let url = req.file.path;
     let filename = req.file.filename;
@@ -48,7 +48,7 @@ module.exports.create = async (req, res, next) => {
 
     newListing.image = {url,filename};
 
-    // newListing.geometry =response.body.features[0].geometry
+    newListing.geometry =response.body.features[0].geometry
 
      let saved = await newListing.save()
 
@@ -71,13 +71,23 @@ module.exports.edit = async (req, res) => {
 module.exports.update = async (req, res) => {
     let { id } = req.params;
     const update = await Listing.findByIdAndUpdate(id, { ...req.body.listing })
+    
+    if(typeof req.file !== "undefined"){
+        let url = req.file.path;
+        let filename = req.file.filename; 
+   
+ 
+    update.image = {url,filename};
+    await update.save();
+};
+ req.flash("success" , "images update ")
     res.redirect(`/listings/${id}`)
 };
 
 module.exports.delete = async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id)
-    req.flash("sucess", "Deleted !")
+    req.flash("success", "Deleted !")
     res.redirect("/listings")
 };
 

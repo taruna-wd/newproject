@@ -141,10 +141,11 @@ const sampleListing =
     {
       title: "Tandoori  Pizza",
       description: "Indian-inspired pizza with tandoori chicken, onions, peppers, and a spicy yogurt sauce.",
-      {
-             filename : "Listingimage",
-      url: "https://img.freepik.com/free-photo/front-view-pizza-with-red-tomatoes-cheese-brown-wooden-round-desk-grey-floor_140725-14480.jpg?t=st=1713177843~exp=1713181443~hmac=e8aee0e6707a6bd347563d8d5db9ebf4e41bb2c84bf889329c23e921af69ae01&w=740",
-    },
+      image: {
+        filename: "Listingimage",
+        url: " https://img.freepik.com/free-photo/front-view-pizza-with-red-tomatoes-cheese-brown-wooden-round-desk-grey-floor_140725-14480.jpg?t=st=1713177843~exp=1713181443~hmac=e8aee0e6707a6bd347563d8d5db9ebf4e41bb2c84bf889329c23e921af69ae01&w=740", 
+        },
+      
     price: 1350,
       location: "Mumbai",
       country: "India"
