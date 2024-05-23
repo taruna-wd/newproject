@@ -25,7 +25,7 @@ module.exports.login =async(req,res)=>{
     req.flash("success"," welcome to pizzas ")
     // let redirect =  res.locals.redirectUrl || "/listings";
     // res.redirect(redirect)
-    res.redirect("/listings/new")
+    res.redirect("/listings")
 };
 
 module.exports.logout = async(req,res,next)=>{
