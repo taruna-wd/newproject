@@ -34,7 +34,7 @@ const validateListing = (req, res, next) => {
 router.get("/", wrapAsync(listingController.index));
 
 
-router.post("/", upload.single('listing[image]'), async (req, res) => {
+router.post("/"),( async (req, res) => {
   // const allListing = await Listing.find({}) ;
   res.send(req.file)
 
@@ -54,6 +54,7 @@ router.get("/:id", wrapAsync(listingController.show));
 //create route
 router.post("/",
   // validateListing,
+ upload.single('listing[image]'),
   wrapAsync(listingController.create));
 
 //  edit route
@@ -66,6 +67,10 @@ router.get("/:id/edit",
 
 router.put("/:id",
   islogIn,
+  // isOwner,
+  // validateListing,
+  upload.single('listing[image]'),
+
   wrapAsync(listingController.update));
 
 // delete route

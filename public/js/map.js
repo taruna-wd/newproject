@@ -7,8 +7,9 @@
         center: [77.2088, 28.6139], // starting position [lng, lat]
         zoom: 9 // starting zoom
     });
+    console.log(coordinates)
 
   // Create a default Marker and add it to the map.
   const marker = new mapboxgl.Marker()
-  .setLngLat(coordinates) // Listing.geometry.coordinates 
+  .setLngLat([77.2088, 28.6139]) // Listing.geometry.coordinates 
   .addTo(map);
