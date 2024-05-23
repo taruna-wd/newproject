@@ -3,7 +3,7 @@
 
 <script>
       let maptoken = "<%= process.env.MAP_TOKEN  %> ";
-      let coordinates = "<%- JSON.stringify(listing.geometry.coordinates) %>   ";
+      let coordinates = <%- JSON.stringify(listing.geometry.coordinates) %> ;
 
 
 </script>
