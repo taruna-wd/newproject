@@ -24,17 +24,17 @@ const listingSchema = new Schema({
     }
   ],
   
-  // geometry :{
-  //   type :{
-  //     type:String,
-  //     enum :['point'],
-  //     required : true
-  //   },
-  //   coordinates :{
-  //     type : [Number],
-  //     requires :true
-  //  }
-  // }
+  geometry :{
+    type :{
+      type:String,
+      enum :['point'],
+      required : true
+    },
+    coordinates :{
+      type : [Number],
+      requires :true
+   }
+  }
   
    
 });

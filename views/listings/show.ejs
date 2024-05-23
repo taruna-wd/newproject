@@ -1,5 +1,11 @@
 <% layout("/layouts/boilerplate")-%> 
 <!-- <%= success  %> -->
+<script>
+      let maptoken = "<%= process.env.MAP_TOKEN  %> ";
+      let coordinates = "<%- JSON.stringify(listing.geometry.coordinates) %>   ";
+
+
+</script>
 
 
 <body>
@@ -104,4 +110,4 @@
   
 
 </body>
-<!-- <script src="/js/map.js"></script> -->
+<script src="/js/map.js"></script>
