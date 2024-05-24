@@ -17,6 +17,8 @@ const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js")
 const Review = require("./models/reviews.js");
 const session = require("express-session")
+const MongoStore = require('connect-mongo');
+
 const passport = require("passport"); // for hashing pswd authenticate and authorisation
 const LocalStrategy = require("passport-local");
 const User  = require("./models/user.js")
@@ -40,8 +42,37 @@ app.engine('ejs', ejsMate); // for template like header and footer same every pa
 
 app.use(express.static(path.join(__dirname, "/public"))) // for static webpages folder is public
 
-const sessionOption={
-   secret : "mysuperstring",
+// to build  database connection
+const atlasUrl = process.env.ATLASDB_URL ; // online cloud database for deploy purpose
+// const mongoUrl = 'mongodb://127.0.0.1:27017/pizza';  // for local system mondo db database
+main()
+   .then(() => {
+      console.log("connect to db")
+   }).catch(err => console.log(err));
+async function main() {
+   await mongoose.connect(atlasUrl) // pizza is name of data base in mongo db
+
+}
+
+
+
+ // for demo firstly
+// app.get("/",(req,res)=>{
+//    res.send(" hi hello ")
+//  });
+
+ const store = MongoStore.create ({
+   mongoUrl: atlasUrl ,
+   crypto: {
+      secret: process.env.SECRET 
+    },
+    mysuperstring : 24 *3600 // Will be updated once in 24 hrs
+
+ })
+
+ const sessionOption={
+   store,
+   secret : process.env.SECRET,
    resave : false,
    saveUniitialized:true,
    cookie : {
@@ -49,12 +80,6 @@ const sessionOption={
       maxAge :  7 *24 * 60 *60 *1000
    }
 }
-
-app.get("/",(req,res)=>{
-   res.send(" hi hello ")
- });
-
-
 app.use(session (sessionOption));
 app.use(flash());
 app.use(passport.initialize())
@@ -78,17 +103,6 @@ app.use("/listings", listings);
 app.use("/listings", reviews)
 app.use("/", userRouter)
 
-// to build  database connection
-const atlasUrl = process.env.ATLASDB_URL ; // online cloud database for deploy purpose
-// const mongoUrl = 'mongodb://127.0.0.1:27017/pizza';  // for local system mondo db database
-main()
-   .then(() => {
-      console.log("connect to db")
-   }).catch(err => console.log(err));
-async function main() {
-   await mongoose.connect(atlasUrl) // pizza is name of data base in mongo db
-
-}
 
 
 

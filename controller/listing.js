@@ -68,6 +68,7 @@ module.exports.edit = async (req, res) => {
     res.render("listings/edit.ejs", { listing })
 };
 
+
 module.exports.update = async (req, res) => {
     let { id } = req.params;
     const update = await Listing.findByIdAndUpdate(id, { ...req.body.listing })
