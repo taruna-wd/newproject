@@ -56,10 +56,7 @@ async function main() {
 
 
 
- // for demo firstly
-// app.get("/",(req,res)=>{
-//    res.send(" hi hello ")
-//  });
+
 
  const store = MongoStore.create ({
    mongoUrl: atlasUrl ,
