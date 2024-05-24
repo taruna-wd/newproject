@@ -14,10 +14,16 @@
    <div class="card ">
     <img src="<%= listing.image.url %>" class="card-img-top " alt="listing_image" style= "height: 20rem;">
     <div class="card-body">
-      <p class="card-text">
-         <b><%= listing.title %></b> <br>
-        <%= listing.description %>   <br>
-        &#8377;<%= listing.price %>  </div>
+      <p class="card-text heading mb-2">
+         <b><%= listing.title %></b> <br> 
+      </p>
+      <p class="card-text mb-2">
+       <%= listing.description %>   <br>
+     </p>
+     <p class="card-text mb-2">
+     &#8377; <b><%= listing.price %>  </b>
+   </p>
+       </div>
   </div>
 </a>
 <% } %>

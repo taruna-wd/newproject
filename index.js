@@ -79,12 +79,14 @@ app.use("/listings", reviews)
 app.use("/", userRouter)
 
 // to build  database connection
+const atlasUrl = process.env.ATLASDB_URL ; // online cloud database for deploy purpose
+// const mongoUrl = 'mongodb://127.0.0.1:27017/pizza';  // for local system mondo db database
 main()
    .then(() => {
       console.log("connect to db")
    }).catch(err => console.log(err));
 async function main() {
-   await mongoose.connect('mongodb://127.0.0.1:27017/pizza') // pizza is name of data base in mongo db
+   await mongoose.connect(atlasUrl) // pizza is name of data base in mongo db
 
 }
 

@@ -16,6 +16,31 @@ body{
 .card-text{
   /* font-weight: bold; */
 }
+.navbar , .card  {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.footer{
+  margin-top: 2rem;
+  width: 100%;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+.nav-link{
+  color: black  !important ;
+
+}
+.heading{
+  font-size: 1.2rem;
+  
+}
+.card-text{
+  color: black !important;
+}
+.nav-link:hover{
+  color: red !important;
+}
+.navbar-brand img{
+  width: 50px;
+}
 .link{
   text-decoration: none;
   color: black;
