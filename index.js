@@ -71,7 +71,7 @@ async function main() {
    store,
    secret : process.env.SECRET,
    resave : false,
-   saveUniitialized:true,
+   saveUninitialized:true,
    cookie : {
       expires : Date.now() +  7 *24 * 60 *60 *1000 , //  save for 7 days  24 hours 60 min 60 sec 1000 mili-sec
       maxAge :  7 *24 * 60 *60 *1000
