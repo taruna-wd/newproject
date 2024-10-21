@@ -1,6 +1,6 @@
 <% layout("/layouts/boilerplate")-%>
-<!-- <%= success %> -->
 <body>
+<<<<<<< HEAD
   <section class="" >
    <div class="carousal ">
        <div class="list">
@@ -112,32 +112,179 @@ Burger        </div>
   </section>
   <div class="container ">
     <h3 class=" text-center"> All Pizzas</h3>
+=======
+ 
+>>>>>>> e689e70 (add slider)
 
-   <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1  justify-content-center ">
-    <% for(let listing of allListing){ %>
+  <section class="container-fluid px-0">
+    <div class="carousel w-full">
+      <div class="list">
+        <div class="item">
+          <img src="assests/dosa.avif" alt="Burger" />
+          <div class="content">
+            <div class="author">Dish</div>
+            <div class="topic">Dosa</div>
+            <div class="des">Crispy South Indian rice crepe.</div>
+            <div class="buttons">
+              <button class="button-62">Book Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assests/cake.avif" alt="Burger" />
+          <div class="content">
+            <div class="author">Dish</div>
+            <div class="topic">Cake</div>
+            <div class="des">Sweet, baked dessert with frosting.</div>
+            <div class="buttons">
+              <button class="button-62">Book Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assests/4.avif" alt="Burger" />
+          <div class="content">
+            <div class="author">Dish</div>
+            <div class="topic">Pizza</div>
+            <div class="des">Cheesy, baked flatbread with toppings.</div>
+            <div class="buttons">
+              <button class="button-62">Book Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assests/burger.avif" alt="Burger" />
+          <div class="content">
+            <div class="author">Dish</div>
+            <div class="topic">Burger</div>
+            <div class="des">Grilled patty in a bun with veggies.</div>
+            <div class="buttons">
+              <button class="button-62">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="thumbnail">
+        <div class="item">
+          <img src="assests\dosa.avif" alt="" srcset="" />
+          <div class="content">
+            <div class="title">Dosa</div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assests/cake.avif" alt="" srcset="" />
+          <div class="content">
+            <div class="title">Cake</div>
+            <div class="des"></div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assests/burger.avif" alt="" srcset="" />
+          <div class="content">
+            <div class="title">Burger</div>
+            <div class="des"></div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="assests/4.avif" alt="" srcset="" />
+          <div class="content">
+            <div class="title">Pizza</div>
+            <div class="des"></div>
+          </div>
+        </div>
+      </div>
+      <div class="arrows">
+        <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+        <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+    </div>
+  </section>
 
-    <a href="/listings/<%= listing._id %>" class="
-      link ">
-    
+  <section class="container my-4">
+    <div class="d-flex justify-content-between mb-3">
+      <h2>What's on your mind</h2>
+      <!-- <div class="category-arrow">
+        <button id=""><i class="fa-solid fa-angle-left"></i></button>
+        <button id=""><i class="fa-solid fa-angle-right"></i></button>
+      </div> -->
+    </div>
+    <div class="d-flex justify-content-between gap-3">
+      <div class="d-flex justify-content-start gap-3" >
+        <div class="category-item" data-category="All">
+          <div><i class="fa-solid fa-layer-group"></i></div>
+          <p class="category-title">All</p>
+        </div>
+      <div class="category-item " id="filter" data-category="Burger">
+        <div><i class="fa-solid fa-burger"></i></div>
+       <p class="category-title" >Burger</p> 
+      </div>
+      <div class="category-item "  id="filter" data-category="Cake">
+        <div><i class="fa-solid fa-cake-candles"></i> </div>
+         <p class="category-title">Cake </p>
+      </div>
+      <div class="category-item " data-category="Pizza">
+        <div>        <i class="fa-solid fa-pizza-slice"></i>  
+        </div>
+       <p  class="category-title">Pizza</p> 
+      </div>
+      <div class="category-item " data-category="Dosa">
+        <div><i class="fa-solid fa-stroopwafel"></i> </div>
+         <p class="category-title">Dosa</p>
+      </div>
+   
+    </div>
+    <!-- <div class="d-flex justify-content-start gap-3 my-3 ">
+      <div class="type-item" data-type="veg">
+        <p class="category-title">Veg</p>
+      </div>
+      <div class="type-item" data-type="non-veg">
+        <p class="category-title">Non-Veg</p>
+      </div>
+      <div class="type-item" data-type="All">
+        <p class="category-title">All Types</p>
+      </div>
+    </div> -->
+      <!-- <div class="form-check-reverse form-switch  toggle border " id="vegAndNonVeg">
+        <input class="form-check-input" type="checkbox" id="vegToggle">
+        <label class="form-check-label" for="vegToggle" >veg</label>
+      </div> -->
   
-   <div class="card ">
-    <img src="<%= listing.image.url %>" class="card-img-top " alt="listing_image" style= "height: 20rem;">
-    <div class="card-body">
-      <p class="card-text heading mb-2">
-         <b><%= listing.title %></b> <br> 
-      </p>
-      <p class="card-text mb-2">
-       <%= listing.description %>   <br>
-     </p>
-     <p class="card-text mb-2">
-     &#8377; <b><%= listing.price %>  </b>
-   </p>
-       </div>
-  </div>
-</a>
-<% } %>
+    </div>
+  </section>
+  <section class="container-fluid  ">
+    <div class="container">
 
-</div>
-</div>
+      <div
+        class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 justify-content-center" id="listings-container"
+      >
+
+  <% if (allListing.length === 0) { %>
+    <p>No listings found for this category.</p>
+  <% } %>
+        <% for(let listing of allListing){ %>
+
+        <a href="/<%= listing._id %>" class="link"   data-type="<%= listing.types %>" data-category="<%= listing.category %>">
+          <div class="card">
+            <img
+              src="<%= listing.image.url %>"
+              class="card-img-top"
+              alt="listing_image"
+              style="height: 20rem"
+            />
+            <div class="card-body">
+              <p class="card-text heading mb-2">
+                <b><%= listing.title %></b> <br />
+              </p>
+              <p class="card-text mb-2"><%= listing.description %> <br /></p>
+              <p class="card-text mb-2"><i class="fa-solid fa-indian-rupee-sign"></i> <b><%= listing.price %> </b></p>
+              
+              <p class="card-text mb-2"> <b><%= listing.types %> </b></p>
+            </div>
+          </div>
+        </a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+  <script src="js/slider.js"></script>
 </body>
-

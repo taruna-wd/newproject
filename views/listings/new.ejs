@@ -1,99 +1,89 @@
 <% layout("/layouts/boilerplate")-%>
 
 <body>
-  <form class="row g-3 justify-content-center needs-validation"  novalidate method="post" action="/listings" enctype="multipart/form-data">
-    <h3 class="text-center new">Add new Pizza</h3>
+  <form
+  class="row g-3 justify-content-center needs-validation my-2"
+  novalidate
+  method="POST"
+  action="/"
+>
+  <h3 class="text-center new">Add Your Favorite</h3>
 
-    <div class="col-8">
-      <label for="inputAddress" class="form-label">Title</label>
-      <input
-        type="text"
-        name="listing[title]"
-        class="form-control"
-        id="inputAddress"
-        placeholder="Title "
-        required
-      />
-      
-      <div class="valid-feedback">
-        Title  is good!      </div>
-    </div>
-    <div class="col-8">
-      <label for="inputAddress" class="form-label">description</label>
-      <textarea
-        type="text"
-        name="listing[description]"
-        class="form-control"
-        id="inputAddress"
-        placeholder="description"
-        required
-      >
-      
-      </textarea>
-      
-      <div class="invalid-feedback">
-        Description should be shorter
-              </div>
-    </div>
-    <div class="col-8">
-      <label for="inputAddress" class="form-label">image</label>
-      <input
-        type="file"
-        name="listing[image]"
-        class="form-control"
-        id="inputAddress"
-        required
-      />
-    </div>
-    <div class="col-8">
-      <label for="inputAddress" class="form-label">price</label>
-      <input
-        type="number"
-        name="listing[price]"
-        class="form-control"
-        id="inputAddress"
-        placeholder="price "
-        required
-      />
-    </div>
+  <div class="col-8">
+    <label for="inputAddress" class="form-label">Title</label>
+    <input
+      type="text"
+      name="listing[title]"
+      class="form-control"
+      id="inputAddress"
+      placeholder="Title "
+      required
+    />
+    <div class="valid-feedback">Title is good!</div>
+  </div>
+  <div class="col-8">
+    <label for="Description" class="form-label">Description</label>
+    <input
+      type="text"
+      name="listing[description]"
+      class="form-control"
+      id="Description"
+      placeholder="description"
+      required
+    >
+    </textarea>
 
-    <div class="col-8">
-      <label for="inputAddress" class="form-label">location</label>
-      <input
-        type="text"
-        name="listing[location]"
-        class="form-control"
-        id="inputAddress"
-        placeholder="location "
-        required
-      />
-      
-      <div class="invalid-feedback">
-        location should be correct!
-              </div>
-    </div>
+    <div class="invalid-feedback">Description should be shorter</div>
+  </div>
+  <div class="col-8">
+    <label for="inputAddress" class="form-label">Image</label>
+    <input
+      type="file"
+      name="listing[image]"
+      class="form-control"
+      id="inputAddress"
+    />
+  </div>
+  <div class="col-8">
+    <label for="inputAddress" class="form-label">Price</label>
+    <input
+      type="number"
+      name="listing[price]"
+      class="form-control"
+      id="inputAddress"
+      placeholder="price "
+      required
+    />
+  </div>
 
-    <div class="col-8">
-      <label for="inputAddress" class="form-label">country</label>
-      <input
-        type="text"
-        name="listing[country]"
-        class="form-control"
-        id="inputAddress"
-        placeholder="country "
-        required
-      />
+  <div class="col-8">
+    <label for="inputAddress" class="form-label">Type</label>
 
-      
-      <div class="invalid-feedback">
-        Country should be according to location
-              </div>
-    </div>
+    <select class="form-select" name="listing[types]" required>
+      <option value="veg">Veg</option>
+      <option value="Non-veg">Non-veg</option>
+    </select>
 
-    <div class="col-8">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
+    <div class="invalid-feedback">Dish should be veg or non-veg</div>
+  </div>
+
+  <div class="col-8">
+    <label for="inputAddress" class="form-label">Category</label>
+
+    <select class="form-select" name="listing[category]" required>
+      <option value="Dosa">Dosa</option>
+      <option value="Cake">Cake</option>
+      <option value="Pizza">Pizza</option>
+      <option value="Burger">Burger</option>
+    </select>
+
+    <div class="invalid-feedback">Category should be according to Title</div>
+  </div>
+
+  <div class="col-8">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
 
   <!-- <form method="post"    action="/listings">
 

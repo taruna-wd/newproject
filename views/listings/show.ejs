@@ -2,15 +2,17 @@
 <!-- <%= success  %> -->
 
 <script>
-      let maptoken = "<%= process.env.MAP_TOKEN  %> ";
-      let coordinates = <%- JSON.stringify(listing.geometry.coordinates) %> ;
 
 
 </script>
 
 <body>
+<<<<<<< HEAD
   
    <div class="row">
+=======
+   <div class="row my-4">
+>>>>>>> e689e70 (add slider)
     <div class="col-8 offset-2"> 
       <h3> <%= listing.title %></h3>
    <div class="">
@@ -20,14 +22,14 @@
          <b><%= listing.title %> </b> <br> 
         <%= listing.description %> <br>
         &#8377; <%= listing.price %> <br>
-        <%= listing.location %> <br>
-        <%= listing.country %>
+        <%= listing.types %> <br>
+        <%= listing.category %>
     </div>
    </div>
 
    <div class="d-flex ">
-  <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary mx-2">Edit Item</a>
-  <form  method="post" action="/listings/<%= listing._id %>?_method=delete">
+  <a href="/<%= listing._id %>/edit" class="btn btn-primary mx-2">Edit Item</a>
+  <form  method="post" action="/<%= listing._id %>?_method=delete">
     <button class="btn btn-danger">Delete Item</button>
 
   </form>
@@ -35,7 +37,7 @@
     <hr>
      <div class=" my-2"> 
       <h4> leave a Review</h4>
-        <form action="/listings/<%=listing.id %>/reviews" method="POST" novalidate>
+        <form action="/<%=listing.id %>/reviews" method="POST" novalidate>
     <!-- <div class="mb-3">
       <label for="Rating" class="form-label">Rating</label>
       <input type="range" min="1" max="5" class="form-range" id="Rating" placeholder="name@example.com" name="review[rating]"  required>
@@ -74,15 +76,15 @@
   <h4>All review</h4> <br>
 
   <% for(review of listing.reviews){ %>
-    <div class="card col-6" >
-      <div class="card-body" style="border:1px solid black;">
+    <div class="card col-4" >
+      <div class="card-body" >
         <h5 class="card-title">taruna</h5>
         <p class="starability-result card-text" data-rating="<%= review.rating %>">
         </p>
         <p class="card-text"> <%= review.comment %> </p>
         <!-- <a href="#" class="btn btn-primary"><%= review.rating %></a> -->
        
-        <form method="post"  action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" >
+        <form method="post"  action="/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" >
           <button  class=" btn btn-danger"> delete</button>     
          </form>
       </div>
@@ -95,7 +97,7 @@
   <%} %>
 </div>
 <div> 
-  <div id="map"></div>
+  <!-- <div id="map"></div> -->
 
 </div>
     <!-- <% for(review of listing.reviews){ %>

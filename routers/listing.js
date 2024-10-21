@@ -44,9 +44,6 @@ router.post("/"),( async (req, res) => {
 router.get("/new",
   islogIn, listingController.newform)
 
-
-
-
 // show route
 router.get("/:id", wrapAsync(listingController.show));
 

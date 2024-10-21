@@ -12,7 +12,7 @@ module.exports.signup = async(req,res)=>{
          }
         })
         req.flash("success" , "  welcome to pizzas")
-        res.redirect("/listings")
+        res.redirect("/")
 
     } catch (error) {
         req.flash("error",error.message);
@@ -25,15 +25,15 @@ module.exports.login =async(req,res)=>{
     req.flash("success"," welcome to pizzas ")
     // let redirect =  res.locals.redirectUrl || "/listings";
     // res.redirect(redirect)
-    res.redirect("/listings")
+    res.redirect("/")
 };
 
 module.exports.logout = async(req,res,next)=>{
-    req.logout((err)=>{
-        if(err){
-            return next()
-        };
-        req.flash("success" , " your are logged out")
-        res.redirect("./listings")
-    });
+    try {
+        await req.logout();  // Proper async logout
+        req.flash("success", "You are logged out");
+        res.redirect("/");
+      } catch (err) {
+        next(err);
+      }
 };

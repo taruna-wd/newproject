@@ -15,8 +15,15 @@ const listingSchema = new Schema({
     // set:(v)=> v === ""?"https://api.pizzahut.io/v1/content/en-in/in-1/images/pizza/bold-bbq-veggies.8cd7bdc4b90ad70c7acfbfdf86a812a1.1.jpg" :v // jb images link to h but image dikh nhi rahi
   },
   price :Number,
-  location:String,
-  country:String,
+  category :{ 
+    type: String,
+    enum :["Dosa" , "Cake" , "Pizza" , "Burger"]
+  },
+  types : {
+    type : String,
+    enum: ["veg", "non-veg"]
+  },
+
   reviews :[
     {
       type : Schema.Types.ObjectId ,
@@ -27,17 +34,19 @@ const listingSchema = new Schema({
     type : Schema.Types.ObjectId ,
       ref :"User"
   },
-  geometry :{
-    type :{
-      type:String,
-      enum :['Point'],
-      required : true
-    },
-    coordinates :{
-      type : [Number],
-      requires :true
-   }
-  }
+  // geometry :{
+  //   type :{
+  //     type:String,
+  //     enum :['Point'],
+  //     default:['Point'],
+  //     required : true
+  //   },
+  //   coordinates :{
+  //     type : [Number],
+  //     requires :true
+  //  }
+  // }
+ 
   
    
 });

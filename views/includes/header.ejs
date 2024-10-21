@@ -1,19 +1,26 @@
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e689e70 (add slider)
 <nav class="navbar navbar-expand-lg  ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <!-- <i class="fa-solid fa-pizza-slice"></i> -->
-      <img src="/assest/web/icon2.png" alt="" srcset="">
+      <img src="/assests/web/icon2.png" alt="" srcset="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav">
-          <a class="nav-link" href="/listings">All pizzas</a>
-          <a class="nav-link" href="/listings/new">Add new Pizza</a>
+          <a class="nav-link" href="/"><b>Zaika</b></a>
         </div>
-
+        
           <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="/new">Add new Pizza</a>
+
 
          <%  if(!currUser) { %>
           <a class="nav-link" href="/signup">signup</a>
@@ -21,7 +28,7 @@
           <a class="nav-link" href="/login">login</a>
           <% } %>
           <% if(currUser) { %>
-            <a class="nav-link" href="/logout">log Out</a>
+            <a class="nav-link" href="/logout"><i class="fa-solid fa-user mx-1"></i> <b>log Out</b></a>
 
           <% }%>
 
@@ -33,3 +40,33 @@
     </div>
   </div>
 </nav>
+<button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+  <i class="fa fa-angle-up"></i></button>
+
+<script>
+  //Get the button
+let mybutton = document.getElementById("btn-back-to-top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+scrollFunction();
+};
+
+function scrollFunction() {
+if (
+document.body.scrollTop > 20 ||
+document.documentElement.scrollTop > 20
+) {
+mybutton.style.display = "block";
+} else {
+mybutton.style.display = "none";
+}
+}
+// When the user clicks on the button, scroll to the top of the document
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
+</script>

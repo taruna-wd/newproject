@@ -1,16 +1,16 @@
 <% layout("/layouts/boilerplate") -%>
 <body>
-  <div class="offset-2">
+  <div class="">
     <form
-      class="row g-3 needs-validation"
+      class="row g-3 justify-content-center needs-validation my-2"
       novalidate
       method="post"
-      action="/listings/<%= listing._id %>?_method=PUT"
+      action="/<%= listing._id %>?_method=PUT"
       enctype="multipart/form-data"
     >
-      <h3 class="new">Add new Pizza</h3>
+      <h3 class="new" >Add New Food</h3>
 
-      <div class="col-8">
+      <div class="col-8 ">
         <label for="inputAddress" class="form-label">Title</label>
         <input
           type="text"
@@ -28,17 +28,17 @@
       </div>
       <div class="col-8">
         <label for="inputAddress" class="form-label">description</label>
-        <textarea
+        <input
           type="text"
           name="listing[description]"
+          value=" <%= listing.description %>"
           class="form-control"
           id="inputAddress"
-          placeholder="description "
+          placeholder="description"
           required
         >
 
- <%= listing.description %></textarea
-        >
+        
         <div class="valid-feedback">
           Description  should be shorter!
         </div>
@@ -71,7 +71,7 @@
         </div>
     
       </div>
-
+<!-- 
       <div class="col-8">
         <label for="inputAddress" class="form-label">location</label>
         <input
@@ -87,8 +87,8 @@
           location should be correct!
         </div>
     
-      </div>
-
+      </div> -->
+<!-- 
       <div class="col-8">
         <label for="inputAddress" class="form-label">country</label>
         <input
@@ -104,8 +104,30 @@
           Country should be according to location
                 </div>
     
+      </div> -->
+      <div class="col-8">
+        <label for="inputAddress" class="form-label">Type</label>
+    
+        <select class="form-select" name="listing[types]" value="<%= listing.types %>" required>
+          <option value="veg">Veg</option>
+          <option value="Non-veg">Non-veg</option>
+        </select>
+    
+        <div class="invalid-feedback">Dish should be veg or non-veg</div>
       </div>
-
+    
+      <div class="col-8">
+        <label for="inputAddress" class="form-label">Category</label>
+    
+        <select class="form-select" name="listing[category]" value="<%= listing.category %>" required>
+          <option value="Dosa">Dosa</option>
+          <option value="Cake">Cake</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Burger">Burger</option>
+        </select>
+    
+        <div class="invalid-feedback">Category should be according to Title</div>
+      </div>
       <div class="col-8">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
