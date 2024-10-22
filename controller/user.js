@@ -23,7 +23,6 @@ module.exports.signup = async(req,res)=>{
 };
 module.exports.login =async(req,res)=>{
     req.flash("success"," welcome to pizzas ")
-    // let redirect =  res.locals.redirectUrl || "/listings";
     // res.redirect(redirect)
     res.redirect("/")
 };
