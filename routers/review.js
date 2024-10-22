@@ -25,8 +25,6 @@ const validateReview = (req, res, next) => {
 };
 
 
-
-
 // reviews Post route 
 
 router.post("/:id/reviews",
