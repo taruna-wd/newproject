@@ -94,7 +94,3 @@ module.exports.delete = async (req, res) => {
     req.flash("success", "Deleted !")
     res.redirect("/")
 };
-
-
-
-
