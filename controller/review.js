@@ -22,8 +22,7 @@ module.exports.createReview =async (req, res) => {
     await newReview.save();
     await listing.save();
  
-    console.log("Saved review");
-    // res.send("Review saved");                                                                                                                                                                                                                             
+    console.log("Saved review");                                                                                                                                                                                                                        
     res.redirect(`/${id}`);
  };
  module.exports.deleteReview = async (req, res) => {
