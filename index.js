@@ -50,13 +50,7 @@ async function main() {
 
 }
 
-<<<<<<< HEAD
 
-
-
-
-=======
->>>>>>> e689e70 (add slider)
  const store = MongoStore.create ({
    mongoUrl: atlasUrl ,
    crypto: {
@@ -113,13 +107,6 @@ app.use("/", userRouter)
 //       let fake = await User.register(fakeUser ,"taruna123" );
 //       res.send(fake)
 //  });
-
-
-
-
-
-
-
 // app.get("/test", async(req,res)=>{
 //   const sampleListing= new Listing({
 //     title:"Bold BBQ Veggies",
