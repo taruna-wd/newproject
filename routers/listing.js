@@ -67,15 +67,10 @@ router.put("/:id",
   // isOwner,
   // validateListing,
   upload.single('listing[image]'),
-
   wrapAsync(listingController.update));
 
 // delete route
-
 router.delete("/:id",
   islogIn,
   wrapAsync(listingController.delete));
-
-
-
 module.exports = router;  
