@@ -57,13 +57,13 @@ router.post("/",
 //  edit route
 
 router.get("/:id/edit",
-  islogIn,
+  // islogIn,
   wrapAsync(listingController.edit));
 
 // update route
 
 router.put("/:id",
-  islogIn,
+  // islogIn,
   // isOwner,
   // validateListing,
   upload.single('listing[image]'),
@@ -71,6 +71,6 @@ router.put("/:id",
 
 // delete route
 router.delete("/:id",
-  islogIn,
+  // islogIn,
   wrapAsync(listingController.delete));
 module.exports = router;  
